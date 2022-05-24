@@ -11,6 +11,9 @@ const Login = React.lazy(() => import("./views/pages/login/Login"));
 const Services = React.lazy(() =>
   import("./views/dashboard/services/Services")
 );
+const roomType = React.lazy(() =>
+  import("./views/dashboard/roomType/roomType")
+);
 
 const ProfileAdmin = React.lazy(() =>
   import("./views/dashboard/users/ProfileAdmin")
@@ -34,6 +37,8 @@ const routes = [
     element: Services,
   },
   { path: "/profile", name: "Profile Admin", element: ProfileAdmin },
+  { path: "/roomtype", name: "Room Type", element: roomType },
+
 ];
 
 const routesRoot = [{ path: "/", name: "Hotels", element: Hotels }];

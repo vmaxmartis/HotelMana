@@ -5,7 +5,7 @@ import { cilUser, cilRoom, cibStorybook } from "@coreui/icons";
 
 import { CNavItem } from "@coreui/react";
 
-import { MdOutlineHomeRepairService } from "react-icons/md";
+import { MdOutlineHomeRepairService,MdClearAll } from "react-icons/md";
 
 const _nav = [
   {
@@ -37,6 +37,12 @@ const _nav = [
     name: "Services",
     to: "/admin/services",
     icon: <MdOutlineHomeRepairService className="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: "Room Type",
+    to: "/admin/roomtype",
+    icon: <MdClearAll className="nav-icon" />,
   },
 ];
 

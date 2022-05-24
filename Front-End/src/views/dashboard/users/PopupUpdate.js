@@ -21,7 +21,7 @@ import { useDispatch, useSelector, connect } from "react-redux";
 import { UpdateDataUser } from "src/Utils/store/action/userAction";
 import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
-import { formatDate } from "../../../Utils/DateTme/dateTime";
+import { formatDateInput } from "../../../Utils/DateTme/dateTime";
 
 const PopupUpdate = (props) => {
   const [visibleLg, setVisibleLg] = useState(false);
@@ -40,7 +40,7 @@ const PopupUpdate = (props) => {
   const [username, setUserName] = useState(nameUser);
   const [password, setPassword] = useState(Password);
   const [fullName, setFullName] = useState(FullName);
-  const [birtDate, setBirthday] = useState(formatDate(BirtDate));
+  const [birtDate, setBirthday] = useState(formatDateInput(BirtDate));
   const [adress, setAdress] = useState(Adress);
   const [phone, setPhone] = useState(Phone);
   const [roleId, setRoleId] = useState(RoleId);
@@ -67,10 +67,13 @@ const PopupUpdate = (props) => {
 
   return (
     <>
-
-      <CButton shape="rounded" variant="outline"   color="info" onClick={() => setVisibleLg(!visibleLg)}>
+      <CButton
+        shape="rounded"
+        variant="outline"
+        color="info"
+        onClick={() => setVisibleLg(!visibleLg)}
+      >
         <VscEdit size={15} /> Edit
-
       </CButton>
       <CModal size="lg" visible={visibleLg} onClose={() => setVisibleLg(false)}>
         <CModalHeader>

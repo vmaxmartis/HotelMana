@@ -37,7 +37,7 @@ const PopupDelete = (props) => {
 
         Delete
       </CButton>
-      <CModal size="lg" visible={visible} onClose={() => setVisible(false)}>
+      <CModal  visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>
           <CModalTitle>Delete room</CModalTitle>
         </CModalHeader>

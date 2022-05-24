@@ -13,15 +13,19 @@ import {
   CModalTitle,
   CModalBody,
   CModalFooter,
+  CSpinner,
 } from "@coreui/react";
 import { VscAdd } from "react-icons/vsc";
 import { useDispatch, connect } from "react-redux";
 import { useForm } from "react-hook-form";
 import { AddDataHotel } from "src/Utils/store/action/hotelAction";
+import { useSelector } from "react-redux";
 
 const PopupAdd = () => {
   const [validated, setValidated] = useState(false);
   const [visibleLg, setVisibleLg] = useState(false);
+
+  const pending = useSelector((state) => state.hotel.pending);
 
   const {
     register,
@@ -57,8 +61,17 @@ const PopupAdd = () => {
 
   return (
     <>
-      <CButton color="success" onClick={() => setVisibleLg(!visibleLg)}>
-        <VscAdd size={15} /> Add
+     
+      <CButton
+        variant="outline"
+        color="success"
+        onClick={() => setVisibleLg(!visibleLg)}
+      >
+          {pending ? 
+          <><CSpinner component="span" size="sm" aria-hidden="true"/>
+          Loading...</> : 
+          <><VscAdd size={15} /> Add</>
+          } 
       </CButton>
       <CModal size="lg" visible={visibleLg} onClose={handleReset}>
         <CModalHeader>
@@ -94,7 +107,7 @@ const PopupAdd = () => {
               )}
             </CCol>
             <CCol md={6} className="position-relative">
-              <CFormLabel htmlFor="validationTooltip02">Adress</CFormLabel>
+              <CFormLabel htmlFor="validationTooltip02">Address</CFormLabel>
               <CFormInput
                 type="text"
                 id="validationTooltip02"
@@ -107,7 +120,7 @@ const PopupAdd = () => {
                 required
               />
               {errors.adress?.type === "required" && (
-                <p className="text-danger mt-2">Adress Hotel is required</p>
+                <p className="text-danger mt-2">Address Hotel is required</p>
               )}
             </CCol>
             <CCol md={5} className="position-relative">

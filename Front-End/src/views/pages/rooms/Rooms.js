@@ -5,7 +5,8 @@ import RoomContainer from "src/components/userPage/RoomContainer";
 import Banner from "src/components/userPage/Banner";
 import { Link } from "react-router-dom";
 import Title from "src/components/userPage/Title";
-
+import "../../../scss/styleuser.scss";
+import Footer from "src/components/userPage/Footer";
 const Rooms = () => {
   return (
     <>
@@ -13,14 +14,29 @@ const Rooms = () => {
         {" "}
         <Navbar />
         <Hero hero="roomsHero">
-          <Banner title="our rooms">
-            <Link to="/" className="btn-primary">
-              return home
-            </Link>
-          </Banner>
+          <div className="hero-wrap">
+            <div className="overlay"></div>
+            <div className="container">
+              <div className="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
+                <div className="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center fadeInUp ftco-animated">
+                  <div className="text">
+                    <p className="breadcrumbs mb-2">
+                      <span className="mr-2">
+                      <Link to="/"  >Return Home</Link>
+                      </span>{" "}
+                      <span className="mr-2"></span>
+                      <a href="/bookings" > Detail Bookroom</a>
+                      
+                    </p>
+                    <h1 className="mb-4 bread">Rooms</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </Hero>
-        <Title title="THE LIST OF ROOM"/>
         <RoomContainer />
+        <Footer />
       </>
     </>
   );

@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   CForm,
-  CFormLabel,
   CFormInput,
   CButton,
   CCol,
@@ -18,7 +17,7 @@ import {
   CTableBody,
   CTable,
 } from "@coreui/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector, connect } from "react-redux";
 import { CreateBill, FetchDataBill } from "src/Utils/store/action/billAction";
 
@@ -27,19 +26,12 @@ import PropTypes from "prop-types";
 import { VscCreditCard } from "react-icons/vsc";
 import { formatDate } from "../../../Utils/DateTme/dateTime";
 
-import {
-  FetchDataTypeRoom,
-  FetchDataRoom,
-} from "../../../Utils/store/action/roomAction";
+
 import { differenceInDays, format } from "date-fns";
 
 const PopupPayment = (props) => {
   const {
-    roomId,
     idBookRoom,
-    customerName,
-    customerIdCard,
-    roomName,
     fromDate,
     toDate,
   } = props;

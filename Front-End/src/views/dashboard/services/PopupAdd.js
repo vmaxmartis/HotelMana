@@ -33,7 +33,7 @@ const PopupAdd = () => {
   });
 
   const [name, setNameService] = useState("");
-  const [price, setPriceService] = useState(0);
+  const [price, setPriceService] = useState("");
 
   const dispatch = useDispatch();
 

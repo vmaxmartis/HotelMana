@@ -1,4 +1,7 @@
 // Here you can add other styles
+.anh {
+  background-image: url(../assets/vue.jpg);
+}
 * {
   margin: 0;
   padding: 0;
@@ -279,7 +282,6 @@ h6 {
   text-align: center;
   margin-bottom: 1.5rem;
   margin-top: 1rem;
-  
 }
 
 .section-title h4 {
@@ -719,6 +721,6 @@ h6 {
   margin-left: auto;
 }
 .pagination {
-  margin-left: 25rem;
   margin-top: 1.5rem;
+  margin-left: 10em;
 }

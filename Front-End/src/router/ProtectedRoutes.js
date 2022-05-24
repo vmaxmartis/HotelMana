@@ -6,8 +6,6 @@ import { Navigate, Outlet } from "react-router-dom";
 import cookie from "react-cookies";
 
 const ProtectedRoutes = ({ redirect }) => {
-  let isAdmin = cookie.load("ADMIN_DATA") || {};
-
   const isAuth = Auth();
   return isAuth ? <Outlet /> : <Navigate to={redirect} />;
 };
