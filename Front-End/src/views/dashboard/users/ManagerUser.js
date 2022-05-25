@@ -38,7 +38,6 @@ function User() {
     .map((item, inx) => {
       return (
         <CTableRow key={item.id}>
-          <CTableHeaderCell scope="row">{inx + 1}</CTableHeaderCell>
           <CTableDataCell>{item.username}</CTableDataCell>
           <CTableDataCell>{item.password}</CTableDataCell>
           <CTableDataCell>{item.fullName}</CTableDataCell>
@@ -52,9 +51,7 @@ function User() {
               );
             })}
           </CTableDataCell>
-
           <CTableDataCell className="text-center">
-
             <PopupUpdate
               userId={item?.id}
               nameUser={item?.username}
@@ -83,7 +80,6 @@ function User() {
       <CTable responsive striped>
         <CTableHead>
           <CTableRow>
-            <CTableHeaderCell scope="col">ID</CTableHeaderCell>
             <CTableHeaderCell scope="col">User name</CTableHeaderCell>
             <CTableHeaderCell scope="col">Password</CTableHeaderCell>
             <CTableHeaderCell scope="col">Full name</CTableHeaderCell>
@@ -98,28 +94,32 @@ function User() {
         </CTableHead>
         <CTableBody>{displayUsers}</CTableBody>
       </CTable>
-      <ReactPaginate
-
-
-        nextLabel="next >"
-        onPageChange={changePage}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={2}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakLabel="..."
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        containerClassName="pagination"
-        activeClassName="active"
-        renderOnZeroPageCount={null}
-      />
+      <CTable responsive>
+        <CTableHead>
+          <CTableRow>
+            <ReactPaginate
+              nextLabel="next >"
+              onPageChange={changePage}
+              pageRangeDisplayed={3}
+              marginPagesDisplayed={2}
+              pageCount={pageCount}
+              previousLabel="< previous"
+              pageClassName="page-item"
+              pageLinkClassName="page-link"
+              previousClassName="page-item"
+              previousLinkClassName="page-link"
+              nextClassName="page-item"
+              nextLinkClassName="page-link"
+              breakLabel="..."
+              breakClassName="page-item"
+              breakLinkClassName="page-link"
+              containerClassName="pagination"
+              activeClassName="active"
+              renderOnZeroPageCount={null}
+            />
+          </CTableRow>
+        </CTableHead>
+      </CTable>
     </>
   );
 }

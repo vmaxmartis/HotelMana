@@ -54,7 +54,11 @@ const PopupUpdate = (props) => {
 
   return (
     <>
-      <CButton color="warning" onClick={() => setVisibleLg(!visibleLg)}>
+      <CButton
+        variant="outline"
+        color="warning"
+        onClick={() => setVisibleLg(!visibleLg)}
+      >
         <VscAdd size={15} /> Edit
       </CButton>
       <CModal size="lg" visible={visibleLg} onClose={() => setVisibleLg(false)}>
@@ -91,11 +95,11 @@ const PopupUpdate = (props) => {
               )}
             </CCol>
             <CCol md={6} className="position-relative">
-              <CFormLabel htmlFor="validationTooltip02">Adress</CFormLabel>
+              <CFormLabel htmlFor="validationTooltip02">Address</CFormLabel>
               <CFormInput
                 type="text"
                 id="validationTooltip02"
-                placeholder="Adress"
+                placeholder="Address"
                 {...register("adress", {
                   required: true,
                 })}
@@ -116,8 +120,8 @@ const PopupUpdate = (props) => {
                 value={phone}
                 {...register("phone", {
                   required: true,
-                  minLength: 11,
-                  maxLength: 11,
+                  minLength: 10,
+                  maxLength: 10,
                 })}
                 onChange={(e) => setPhoneHotel(e.target.value)}
                 required
@@ -128,13 +132,13 @@ const PopupUpdate = (props) => {
               {errors.phone?.type === "minLength" && (
                 <p className="text-danger mt-2">
                   {" "}
-                  Number phone must be 11 characters long
+                  Number phone must be 10 characters long
                 </p>
               )}
               {errors.phone?.type === "maxLength" && (
                 <p className="text-danger mt-2">
                   {" "}
-                  Number phone not than 11 characters long
+                  Number phone not than 10 characters long
                 </p>
               )}
             </CCol>

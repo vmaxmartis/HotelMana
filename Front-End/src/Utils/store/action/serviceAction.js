@@ -19,10 +19,10 @@ export const AddDataService = (data) => {
       const res = await ApiCaller("services/create", "POST", data);
       if (res.status === 200) {
         dispatch({ type: a.ADD_DATA_SERVICE, payload: res.data.inforService });
-        toast.success("Successfully added new!!");
+        toast.success("Added Successfully!!");
       }
     } catch (error) {
-      toast.error("Add new failed!!");
+      toast.error("Added failed!!");
     }
   };
 };

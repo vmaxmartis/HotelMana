@@ -9,7 +9,6 @@ export const FetchDataBill = (id) => {
     try {
       const res = await ApiCaller(`bill/getTotalBill/${id}`, "GET", null);
       dispatch({ type: a.GET_DATA_BILL, payload: res.data });
-      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -26,7 +25,7 @@ export const CreateBill = (data) => {
         toast.success("Payment Successfully!!");
       }
     } catch (error) {
-      toast.error("create new failed!!");
+      toast.error("Payment failed!!");
     }
   };
 };

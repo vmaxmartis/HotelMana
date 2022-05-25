@@ -37,7 +37,7 @@ export const UserLoginAction = ({ username, password }) => {
         dispatch({ type: a.LOGIN_USER, payload: res.data.Token });
         toast.success("Login Success");
       } else if (res.data.role === "Root") {
-        toast.warning("Login Failed");
+        toast.warning("Incorrect login or password!!");
         cookie.remove("ADMIN_DATA");
       }
     } catch (error) {

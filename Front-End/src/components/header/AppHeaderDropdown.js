@@ -54,18 +54,23 @@ const AppHeaderDropdown = () => {
         <RiAdminFill size={20} />
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
-        <Link
-          className="dropdown-item"
-          style={{
-            textDecoration: "none",
-            color: "#4f5d73",
-            paddingLeft: "1em",
-          }}
-          to="/admin/profile"
-        >
-          <CIcon icon={cilUser} className="me-2" />
-          Profile
-        </Link>
+        {isAdminRoot.role === "Admin" ? (
+          <Link
+            className="dropdown-item"
+            style={{
+              textDecoration: "none",
+              color: "#4f5d73",
+              paddingLeft: "1em",
+            }}
+            to="/admin/profile"
+          >
+            <CIcon icon={cilUser} className="me-2" />
+            Profile
+          </Link>
+        ) : (
+          []
+        )}
+
         <CDropdownItem href="/admin/login" onClick={handleLogOutAd}>
           <CIcon icon={cilLockLocked} className="me-2" />
           Logout

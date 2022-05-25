@@ -12,16 +12,18 @@ export const FetchDataBookRoom = () => {
       console.log(error);
     }
   };
-}; //lấy data bookroom  hiển thị table 
+};
+
 export const AddDataBookRoom = (data) => {
   return async (dispatch) => {
     try {
       const res = await ApiCaller("bookroom/create", "POST", data);
-      dispatch({ type: a.ADD_DATA_BOOKROOM, payload: res.data.result });
-      toast.success("Successfully added new!!");
-      // window.location.reload();
-    } catch (error) {
-      toast.error("Add new failed!!");
+      if (res.status === 200) {
+        dispatch({ type: a.ADD_DATA_BOOKROOM, payload: res.data.result });
+        toast.success("Successfully!!");
+      }
+    } catch (e) {
+      toast.error("Please enter the correct information!!");
     }
   };
 };

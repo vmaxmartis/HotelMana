@@ -1,13 +1,12 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./scss/style.scss";
-
+import './scss/styleuser.scss'
 import ProtectedRoutes from "./router/ProtectedRoutes";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import cookie from "react-cookies";
 
 const loading = (
   <div className="pt-3 text-center">

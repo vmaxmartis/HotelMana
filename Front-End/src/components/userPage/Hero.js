@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
 const Hero = ({ children, hero }) => {
-  return <header className={hero}>{children}</header>;
+  return (
+    <>
+      <header className={hero}>{children}</header>;
+    </>
+  );
 };
 
 export default Hero;

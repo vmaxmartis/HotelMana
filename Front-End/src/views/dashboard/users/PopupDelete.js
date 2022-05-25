@@ -10,6 +10,8 @@ import {
 import PropTypes from "prop-types";
 import { DeleteDataUser } from "src/Utils/store/action/userAction";
 import { useDispatch } from "react-redux";
+import { cilDelete } from "@coreui/icons";
+import CIcon from "@coreui/icons-react";
 
 const PopupDelete = (props) => {
   const [visible, setVisible] = useState(false);
@@ -27,8 +29,13 @@ const PopupDelete = (props) => {
 
   return (
     <>
-      <CButton size="sm" color="danger" shape="rounded" variant="outline" onClick={() => setVisible(!visible)}>
-        Delete
+      <CButton
+        color="danger"
+        shape="rounded"
+        variant="outline"
+        onClick={() => setVisible(!visible)}
+      >
+        <CIcon icon={cilDelete} size="sm" /> Delete
       </CButton>
       <CModal size="lg" visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>

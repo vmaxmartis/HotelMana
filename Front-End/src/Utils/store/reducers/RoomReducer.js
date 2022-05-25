@@ -24,8 +24,28 @@ const listRoomReducer = (state = initialState, action) => {
         ...state,
         rooms: action.payload,
       };
-    case a.GET_TYPE_DATA:
+    case a.GET_DATA_ROOM_TYPE:
       return { ...state, typeRoom: action.payload };
+
+      case a.ADD_DATA_ROOM_TYPE:
+        const typeRoom = state.typeRoom.concat(action.payload);
+        return { ...state, typeRoom };
+
+        case a.DELETE_DATA_ROOM_TYPE:
+          return {
+            ...state,
+            typeRoom: action.payload,
+          };
+
+          case a.UPDATE_DATA_ROOM_TYPE:
+            return {
+              ...state,
+              typeRoom: state.typeRoom.map((item) =>
+                item.id == action.payload.id ? action.payload : item
+              ),
+            };
+
+
     default:
       return state;
   }

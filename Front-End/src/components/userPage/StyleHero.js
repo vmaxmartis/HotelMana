@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import defaultImg from "../../images/room-1.jpeg";
+import defaultImg from "../../assets/bg_1.jpg";
 const StyledHero = styled.header`
-  min-height: 60vh;
+  min-height: 45vh;
   /* background: url(${defaultImg}); */
   background: url(${(props) => (props.img ? props.img : defaultImg)});
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
 `;
 
 export default StyledHero;

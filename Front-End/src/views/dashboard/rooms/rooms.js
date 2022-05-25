@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./room.scss";
+import "../../../scss/style.scss"
 import {
   CRow,
   CCol,
@@ -55,7 +56,6 @@ export default function Rooms() {
     .map((item) => {
       return (
         <CCol xs key={item.id}>
-
           <CCard textColor="primary" className="h-100">
             <CCardImage orientation="top" src={img1} />
             <CCardBody>
