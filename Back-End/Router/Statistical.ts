@@ -1,13 +1,13 @@
 import express from 'express';
 import { Router } from "express";
-import { HotelController } from "../Controllers/Hotel"
+import { StatisticalController } from "../Controllers/Statistical"
 import bodyParser from 'body-parser';
 
 
-const Controller = new HotelController();
+const Controller = new StatisticalController();
 
 
-export class HotelRouter {
+export class StatisticalRouter {
     public Router: Router;
 
     constructor() {
@@ -17,10 +17,7 @@ export class HotelRouter {
     }
 
     routers() {
-        this.Router.get('/findAll', Controller.findAll);
-
-        this.Router.post('/create', Controller.create);
-
+        this.Router.get('/Service-most/:month/:year', Controller.findServiceMost);
     }
 
     public config(): void {

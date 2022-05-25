@@ -10,7 +10,7 @@ export class ServicesService {
         if (typeof item.name === "undefined" || !item.name) {
             return Promise.reject({ messager: "Name Invalid !" });
         }
-        if (typeof item.price === "undefined" || !item.price || item.price < 1) {
+        if (typeof item.price === "undefined" || typeof item.price === "string" || !item.price || item.price < 1) {
             return Promise.reject({ messager: "Price Invalid !" });
         }
         const hotel = await HotelRepo.findOne(hotelId);
@@ -55,6 +55,7 @@ export class ServicesService {
             await new ServicesService().checkvalidateService(item , hotelId);
             await new ServicesService().checkvalidateNameServiceCreate(item.name, hotelId); // tim xem service cos trong HotelId do chua
             try {
+                item.hotelId = hotelId;
                 const rs = await Repository.create(item);
                 if (rs) {
                     // const service = await Repository.findOne(item.id);
