@@ -30,12 +30,13 @@ const PopupDelete = (props) => {
   return (
     <>
       <CButton
-        color="danger"
+        size="sm"
+        color="dark"
+        variant="ghost"
         shape="rounded"
-        variant="outline"
         onClick={() => setVisible(!visible)}
       >
-        <CIcon icon={cilDelete} size="sm" /> Delete
+        Delete
       </CButton>
       <CModal size="lg" visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>

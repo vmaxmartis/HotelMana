@@ -24,8 +24,9 @@ const Rooms = () => {
                       <span className="mr-2">
                       <Link to="/"  >Return Home</Link>
                       </span>{" "}
-                      <span className="mr-2"></span>
-                      <a href="/bookings" > Detail Bookroom</a>
+                      <span className="mr-2 active">
+                      <Link to="/bookings"  >Return Home</Link>
+                      </span>{" "}
                       
                     </p>
                     <h1 className="mb-4 bread">Rooms</h1>

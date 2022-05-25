@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import defaultImg from "../../assets/bg_1.jpg";
 const StyledHero = styled.header`
-  min-height: 45vh;
-  /* background: url(${defaultImg}); */
+  height: 100px;
   background: url(${(props) => (props.img ? props.img : defaultImg)});
   display: flex;
   align-items: left;

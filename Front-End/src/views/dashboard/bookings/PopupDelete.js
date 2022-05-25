@@ -15,7 +15,11 @@ const PopupDelete = () => {
   const [visible, setVisible] = useState(false);
   return (
     <>
-      <CButton color="danger" onClick={() => setVisible(!visible)}>
+      <CButton
+        color="light"
+        variant="ghost"
+        onClick={() => setVisible(!visible)}
+      >
         <CIcon icon={cilDelete} size="lg" />
       </CButton>
       <CModal size="lg" visible={visible} onClose={() => setVisible(false)}>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./room.scss";
-import "../../../scss/style.scss"
+import "../../../scss/style.scss";
 import {
   CRow,
   CCol,
@@ -32,7 +32,6 @@ export default function Rooms() {
 
   const data = useSelector((state) => state.room.rooms);
 
-
   useEffect(() => {
     dispatch(FetchDataTypeRoom());
   }, [dispatch]);
@@ -47,59 +46,47 @@ export default function Rooms() {
     dispatch(FetchDataRoom());
   }, [dispatch]);
 
-
   const [pageNumber, setPageNumber] = useState(0);
-  const usersPerPage = 7;
+  const usersPerPage = 11;
   const pagesVisited = pageNumber * usersPerPage;
   const displayUsers = dataSort
     .slice(pagesVisited, pagesVisited + usersPerPage)
     .map((item) => {
       return (
-        <CCol xs key={item.id}>
-          <CCard textColor="primary" className="h-100">
-            <CCardImage orientation="top" src={img1} />
-            <CCardBody>
-              <CCardTitle>
-                <div className="Title">
-                  {item.name}
-                  {item.status === 1 ? (
-                    <CBadge  size="sm" shape="rounded-pill" color="success">
-                      Active
-                    </CBadge>
-                  ) : (
-                    <CBadge size="sm" shape="rounded-pill" color="secondary">
-                      Empty
-                    </CBadge>
-                  )}
-                </div>
-              </CCardTitle>
-              <CCardText>{item.price}</CCardText>
+        <>
+          <CCol >
+            <CCard className="h-100" key={item.id}>
+              <div className="half right-arrow d-flex align-items-center">
+                <div className="text p-5 text-center">
+                  <h3 className="mb-6">
+                    <a href="rooms.html"> {item.name}</a>
+                  </h3>
+                  {dataType.map((type) => {
+                    return (
+                      <div className="mb-1" key={type.id}>
+                        {type.id === item.roomTypeId ? type.type : []}{" "}
+                        <span className="Title">
+                          {type.id === item.roomTypeId ? `${type.price}đ` : []}{" "}
+                        </span>
+                      </div>
+                    );
+                  })}
 
-              {dataType.map((type) => {
-                return (
-                  <div className="type" key={type.id}>
-                    {type.id === item.roomTypeId ? type.type : []}{" "}
-                    <span className="Title">
-                      {type.id === item.roomTypeId ? `${type.price}đ` : []}{" "}
-                    </span>
+                  <span className="per">per night</span>
+
+                  <div className="d-grid gap-2  mx-auto">
+                    <PopupUpdate
+                      roomId={item?.id}
+                      nameRoom={item?.name}
+                      typeRoom={item?.roomType}
+                    />
+                    <PopupDelete roomId={item?.id} nameRoom={item?.name} />
                   </div>
-                );
-              })}
-
-              <div className="d-grid gap-2  mx-auto">
-
-                <PopupUpdate
-                  roomId={item?.id}
-                  nameRoom={item?.name}
-                  typeRoom={item?.roomType}
-
-                />{" "}
-                <PopupDelete roomId={item?.id} nameRoom={item?.name} />
+                </div>
               </div>
-
-            </CCardBody>
-          </CCard>
-        </CCol>
+            </CCard>
+          </CCol>
+        </>
       );
     });
 
@@ -111,8 +98,8 @@ export default function Rooms() {
 
   return (
     <>
-      <CRow xs={{ cols: 1 }} md={{ cols: 4 }} className="g-4">
-        <CCol xs>
+      <CRow xs={{ cols: 2 }} md={{ cols: 4 }} className="g-4">
+        <CCol >
           <CCard className="h-100">
             <CCardImage orientation="top" src={img1} />
             <CCardBody>
